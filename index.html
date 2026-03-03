@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Supporter AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Teacher Supporter AI</h1>
+      <p>
+        A simple helper for teachers: draft better emails faster and book meetings
+        in the next 7 days.
+      </p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>1) Email Helper (OpenClaw AI)</h2>
+        <p class="muted">Low-tech mode: just fill the boxes and press one button.</p>
+
+        <details>
+          <summary>OpenClaw setup (optional)</summary>
+          <div class="grid-2">
+            <label>
+              OpenClaw API Endpoint
+              <input id="apiEndpoint" type="text" placeholder="https://api.openclaw.ai/v1/chat/completions" />
+            </label>
+            <label>
+              OpenClaw API Key
+              <input id="apiKey" type="password" placeholder="Paste key here" />
+            </label>
+          </div>
+          <p class="muted">
+            If no key is added, this app still creates a friendly draft using local smart templates.
+          </p>
+        </details>
+
+        <div class="grid-2">
+          <label>
+            Recipient
+            <input id="recipient" type="text" placeholder="Parent, student, colleague" />
+          </label>
+          <label>
+            Tone
+            <select id="tone">
+              <option>Friendly</option>
+              <option>Professional</option>
+              <option>Warm + Direct</option>
+              <option>Supportive</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          What is the email about?
+          <textarea id="emailContext" rows="4" placeholder="Example: Student is improving but still missing homework. Need parent support."></textarea>
+        </label>
+
+        <label>
+          Must include (optional)
+          <textarea id="mustInclude" rows="2" placeholder="Example: mention next test on Friday and office hours"></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="generateEmail">Generate Draft</button>
+          <button id="copyEmail" class="secondary">Copy</button>
+          <button id="clearEmail" class="secondary">Clear</button>
+        </div>
+
+        <label>
+          Draft email
+          <textarea id="emailOutput" rows="10" placeholder="Your draft will appear here..."></textarea>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>2) Meeting Scheduler (Next 7 Days)</h2>
+        <p class="muted">Pick availability and create a clear meeting offer in one click.</p>
+
+        <div class="grid-3">
+          <label>
+            Start date
+            <input id="startDate" type="date" />
+          </label>
+          <label>
+            Daily start time
+            <input id="dayStart" type="time" value="09:00" />
+          </label>
+          <label>
+            Daily end time
+            <input id="dayEnd" type="time" value="16:00" />
+          </label>
+        </div>
+
+        <label>
+          Meeting length
+          <select id="slotLength">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">60 minutes</option>
+          </select>
+        </label>
+
+        <div class="actions">
+          <button id="generateSlots">Generate 7-Day Slots</button>
+        </div>
+
+        <div id="slots" class="slots"></div>
+
+        <label>
+          Message with selected times
+          <textarea id="scheduleMessage" rows="7" placeholder="Select time slots to build message..."></textarea>
+        </label>
+        <div class="actions">
+          <button id="copySchedule" class="secondary">Copy Meeting Message</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Made for teachers who want simple tools, not extra complexity.</footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
