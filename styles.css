@@ -1,0 +1,129 @@
+:root {
+  --bg: #f7f9fc;
+  --card: #ffffff;
+  --text: #1f2a37;
+  --muted: #516070;
+  --primary: #1e40af;
+  --primary-hover: #1d4ed8;
+  --border: #d5dceb;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+}
+
+.hero {
+  background: #0f172a;
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+}
+.hero h1 { margin: 0 0 0.3rem; font-size: 1.8rem; }
+.hero p { margin: 0; font-size: 1rem; }
+
+.container {
+  max-width: 980px;
+  margin: 1rem auto;
+  padding: 0 1rem 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+h2 { margin-top: 0; }
+.muted { color: var(--muted); font-size: 0.95rem; }
+
+label {
+  display: block;
+  margin: 0.65rem 0;
+  font-weight: 600;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-top: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem;
+  font: inherit;
+  background: #fff;
+}
+
+textarea { resize: vertical; }
+
+details {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem;
+  background: #f8fbff;
+}
+summary { cursor: pointer; font-weight: 700; }
+
+.grid-2, .grid-3 {
+  display: grid;
+  gap: 0.8rem;
+}
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.6rem 0;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+}
+button:hover { background: var(--primary-hover); }
+button.secondary {
+  background: #e5eaf4;
+  color: #17263c;
+}
+button.secondary:hover { background: #dbe3f2; }
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.day-group {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem;
+  background: #fafcff;
+}
+.day-group h4 { margin: 0 0 0.4rem; }
+.slot {
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+}
