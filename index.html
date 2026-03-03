@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trợ lí AI cho Giảng viên</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar card">
+        <h1>Trợ lí AI Giảng viên</h1>
+        <p class="muted">Hỗ trợ mail hôm nay và lịch hẹn tối đa 7 ngày.</p>
+
+        <details open>
+          <summary>Kết nối OpenClaw (tuỳ chọn)</summary>
+          <label>
+            API Endpoint
+            <input id="apiEndpoint" type="text" placeholder="https://api.openclaw.ai/v1/chat/completions" />
+          </label>
+          <label>
+            API Key
+            <input id="apiKey" type="password" placeholder="Dán key vào đây" />
+          </label>
+        </details>
+
+        <details open>
+          <summary>Mặc định lịch hẹn</summary>
+          <label>
+            Ngày bắt đầu
+            <input id="startDate" type="date" />
+          </label>
+          <label>
+            Giờ bắt đầu
+            <input id="dayStart" type="time" value="09:00" />
+          </label>
+          <label>
+            Giờ kết thúc
+            <input id="dayEnd" type="time" value="17:00" />
+          </label>
+          <label>
+            Độ dài mỗi slot
+            <select id="slotLength">
+              <option value="15">15 phút</option>
+              <option value="30" selected>30 phút</option>
+              <option value="45">45 phút</option>
+              <option value="60">60 phút</option>
+            </select>
+          </label>
+          <button id="generateSchedule" type="button">Tạo bảng lịch 7 ngày</button>
+        </details>
+
+        <div class="quick-actions">
+          <button class="chip" data-prompt="Tổng hợp thông tin mail hôm nay">Tổng hợp mail hôm nay</button>
+          <button class="chip" data-prompt="Cho tôi lịch hẹn để sinh viên đặt trong 7 ngày tới">Tạo lịch hẹn</button>
+          <button class="chip" data-prompt="Soạn trả lời email số 1">Soạn trả lời mail</button>
+        </div>
+      </aside>
+
+      <section class="chat card">
+        <header class="chat-header">
+          <h2>Chat với trợ lí</h2>
+          <button id="clearChat" class="secondary" type="button">Xóa chat</button>
+        </header>
+
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+
+        <div id="scheduleTableWrap" class="schedule-wrap"></div>
+        <div id="scheduleActions" class="schedule-actions" hidden>
+          <button id="autoSchedule" type="button">Lên lịch tự động</button>
+        </div>
+
+        <form id="chatForm" class="composer">
+          <textarea id="userInput" rows="3" placeholder="Nhập câu hỏi... ví dụ: Tổng hợp mail hôm nay" required></textarea>
+          <div class="composer-actions">
+            <button type="submit">Gửi</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
